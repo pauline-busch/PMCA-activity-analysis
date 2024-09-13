@@ -6,8 +6,10 @@ library(ggthemes)
 library(ggpubr)
 
 # Read in the file that contains the baseline data
-baseline_data <- read_xlsx("C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/events-Jerone Van1.xlsx")
-PMCA_data <- read_xlsx("C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/events-Jerone Van1.1.xlsx")
+baseline_data <- read_xlsx("events-Jerone Van1.xlsx")
+
+# Read in the file that contains the PMCA data
+PMCA_data <- read_xlsx("events-Jerone Van1.1.xlsx")
 
 # Baseline data -----------------------------------------------------------
 # Bin data (1 second intervals - median)
@@ -17,7 +19,7 @@ baseline_data <- baseline_data %>%
   summarise(across(where(is.numeric), ~median(.x, na.rm = TRUE)))
 
 # Save the binned data as excel file
-write.xlsx(baseline_data, "C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/binned-Jerone Van1.xlsx")
+write.xlsx(baseline_data, "binned-Jerone Van1.xlsx")
 
 # Define the time interval for the baseline
 start_time <- 200
@@ -62,7 +64,7 @@ calcium_baseline <- ggplot(baseline_data, aes(TimeBin, FL1)) +
 
 # Save your plot as an image
 ggsave("FC_data.tiff", 
-       path = "C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/graphs", 
+       path = "graphs", 
        units = "in", 
        dpi=300, 
        compression = 'lzw',
@@ -78,7 +80,7 @@ PMCA_data <- PMCA_data %>%
   summarise(across(where(is.numeric), ~median(.x, na.rm = TRUE)))
 
 # Save the binned data as excel file
-write.xlsx(PMCA_data, "C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/binned-Jerone Van1.1.xlsx")
+write.xlsx(PMCA_data, "binned-Jerone Van1.1.xlsx")
 
 # Define the time interval for the baseline
 start_time_2 <- 6
@@ -123,7 +125,7 @@ calcium_PMCA <- ggplot(PMCA_data, aes(TimeBin, FL1)) +
 
 # Save your plot as an image
 ggsave("FC_data_2.tiff", 
-       path = "C:/Users/miri/Documents/GitHub/R-graphs/Flow cytometry analysis/graphs", 
+       path = "graphs", 
        units = "in", 
        dpi=300, 
        compression = 'lzw',
