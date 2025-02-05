@@ -1,12 +1,5 @@
 ---
-title: "Data analysis - markdown"
-author: "Pauline Busch"
-date: "2024-07-16"
-output:
-  html_document: 
-    theme: paper
-    toc: true
-    keep_md: true
+output: github
 ---
 
 ## Load the required R libraries

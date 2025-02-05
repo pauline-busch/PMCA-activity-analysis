@@ -1,14 +1,3 @@
----
-title: "Data analysis - markdown"
-author: "Pauline Busch"
-date: "2024-07-16"
-output:
-  html_document: 
-    theme: paper
-    toc: true
-    keep_md: true
----
-
 ## Load the required R libraries
 We need some R packages to read in excel files and make a nice graph. These are included in the following libraries:
 
